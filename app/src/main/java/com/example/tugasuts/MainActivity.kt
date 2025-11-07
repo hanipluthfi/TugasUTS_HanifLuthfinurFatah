@@ -31,7 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
             // Validasi semua field tidak boleh kosong
-            if (isAllFieldsFilled(editUsername, editEmail, editFirstName, editLastName, editPassword)) {
+            if (isAllFieldsFilled(
+                    editUsername,
+                    editEmail,
+                    editFirstName,
+                    editLastName,
+                    editPassword
+                )
+            ) {
                 // Semua field terisi
                 val username = editUsername.text.toString()
                 val email = editEmail.text.toString()
@@ -39,25 +46,27 @@ class MainActivity : AppCompatActivity() {
                 val lastName = editLastName.text.toString()
 
                 // Tampilkan pesan sukses
-                val successMessage = "User $firstName $lastName (Username: $username) berhasil didaftarkan"
+                val successMessage =
+                    "User $firstName $lastName (Username: $username) berhasil didaftarkan"
                 Toast.makeText(this, successMessage, Toast.LENGTH_LONG).show()
-            } else i
+            } else {
+            }
+
         }
-
     }
-}
 
 
-private fun isAllFieldsFilled(
-    editUsername: EditText,
-    editEmail: EditText,
-    editFirstName: EditText,
-    editLastName: EditText,
-    editPassword: EditText
-): Boolean {
-    return editUsername.text.toString().isNotEmpty() &&
-            editEmail.text.toString().isNotEmpty() &&
-            editFirstName.text.toString().isNotEmpty() &&
-            editLastName.text.toString().isNotEmpty() &&
-            editPassword.text.toString().isNotEmpty()
+    private fun isAllFieldsFilled(
+        editUsername: EditText,
+        editEmail: EditText,
+        editFirstName: EditText,
+        editLastName: EditText,
+        editPassword: EditText
+    ): Boolean {
+        return editUsername.text.toString().isNotEmpty() &&
+                editEmail.text.toString().isNotEmpty() &&
+                editFirstName.text.toString().isNotEmpty() &&
+                editLastName.text.toString().isNotEmpty() &&
+                editPassword.text.toString().isNotEmpty()
+    }
 }
